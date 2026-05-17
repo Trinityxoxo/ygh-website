@@ -116,10 +116,9 @@
       .step-num { flex-shrink: 0; background: #D4A853; color: #fff; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.5rem; }
       .step-text { font-size: 1.375rem; }
 
-      /* Real photos */
-      .mobility-photo { width: 100%; height: 440px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.10); margin: 2rem 0; display: block; }
-      .mobility-photo.top-crop { object-position: center 18%; }   /* crop feet out by anchoring composition higher */
-      @media (max-width: 768px) { .mobility-photo { height: 320px; } }
+      /* Real photos — show the full AI-generated image at its native 4:3 aspect so no faces are cropped (fix 17 May 2026) */
+      .mobility-photo { width: 100%; max-width: 920px; height: auto; aspect-ratio: 1448 / 1086; object-fit: cover; object-position: center; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.10); margin: 2rem auto; display: block; }
+      .mobility-photo.top-crop { object-position: center; }   /* legacy class — no longer crops, kept for backward-compat */
 
       /* Reviews */
       .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 1rem; }

@@ -20,11 +20,16 @@
 /blog/how-much-does-a-new-boiler-cost-doncaster.html /blog/how-much-does-a-new-boiler-cost-doncaster 301!
 /blog/signs-you-need-an-emergency-plumber.html       /blog/signs-you-need-an-emergency-plumber       301!
 /blog/hard-water-doncaster-water-softener-guide.html /blog/hard-water-doncaster-water-softener-guide 301!
+/blog/repair-or-replace-boiler-doncaster-2026.html   /blog/repair-or-replace-boiler-doncaster-2026   301!
 
 # Legacy duplicate URLs
 /termsandconditions                      /terms                              301
 /booking                                 /book                               301
 /online-booking                          /book                               301
+
+# /boiler-repair-doncaster doesn't exist as a dedicated page yet — funnel repair-intent traffic to the boiler-installation page (which covers both)
+/boiler-repair-doncaster                 /boiler-installation-doncaster      301
+/boiler-repair-doncaster.html            /boiler-installation-doncaster      301
 
 # Legacy /about and /contact (they don't exist as pages yet — safe-land on homepage anchors)
 # Cover both extensionless and .html so old bookmarks don't 404 (added 18 May)
