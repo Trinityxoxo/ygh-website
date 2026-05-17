@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Explicitly allow images so Google Images can index them
+Allow: /images/
+
+Sitemap: https://yorkshiregreenheating.com/sitemap.xml

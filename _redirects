@@ -1,0 +1,23 @@
+# Redirect .html URLs to extensionless canonical versions
+/index.html              /                                  301!
+/emergency-plumber-doncaster.html        /emergency-plumber-doncaster        301!
+/boiler-installation-doncaster.html      /boiler-installation-doncaster      301!
+/central-heating-doncaster.html          /central-heating-doncaster          301!
+/bathroom-installation-doncaster.html    /bathroom-installation-doncaster    301!
+/gas-engineer-doncaster.html             /gas-engineer-doncaster             301!
+/facilities-management-doncaster.html    /facilities-management-doncaster    301!
+/plumber-doncaster.html                  /plumber-doncaster                  301!
+/mobility-bathrooms-doncaster.html        /mobility-bathrooms-doncaster        301!
+/blog.html                               /blog                               301!
+/privacy.html                            /privacy                            301!
+/terms.html                              /terms                              301!
+/book.html                               /book                               301!
+
+# Legacy duplicate URLs
+/termsandconditions                      /terms                              301
+/booking                                 /book                               301
+/online-booking                          /book                               301
+
+# Legacy /about and /contact (they don't exist as pages yet — safe-land on homepage anchors)
+/about     /#about     301
+/contact   /#contact   301
