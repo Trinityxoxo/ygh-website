@@ -13,11 +13,22 @@
 /terms.html                              /terms                              301!
 /book.html                               /book                               301!
 
+# Blog post .html → extensionless (was missing — caused duplicate content per 18 May audit)
+/blog/yorkshire-green-heating-vat-growth.html        /blog/yorkshire-green-heating-vat-growth        301!
+/blog/spring-boiler-service-doncaster.html           /blog/spring-boiler-service-doncaster           301!
+/blog/cut-heating-bills-easter-doncaster-guide.html  /blog/cut-heating-bills-easter-doncaster-guide  301!
+/blog/how-much-does-a-new-boiler-cost-doncaster.html /blog/how-much-does-a-new-boiler-cost-doncaster 301!
+/blog/signs-you-need-an-emergency-plumber.html       /blog/signs-you-need-an-emergency-plumber       301!
+/blog/hard-water-doncaster-water-softener-guide.html /blog/hard-water-doncaster-water-softener-guide 301!
+
 # Legacy duplicate URLs
 /termsandconditions                      /terms                              301
 /booking                                 /book                               301
 /online-booking                          /book                               301
 
 # Legacy /about and /contact (they don't exist as pages yet — safe-land on homepage anchors)
-/about     /#about     301
-/contact   /#contact   301
+# Cover both extensionless and .html so old bookmarks don't 404 (added 18 May)
+/about        /#about     301
+/contact      /#contact   301
+/about.html   /#about     301!
+/contact.html /#contact   301!
