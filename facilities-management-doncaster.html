@@ -520,5 +520,25 @@
   <script type="application/ld+json">
     {"@context":"https://schema.org","@type": "HVACBusiness","name":"Yorkshire Green Heating Ltd","image":"https://yorkshiregreenheating.com/icon-512.png","telephone":"01302 963007","email":"info@yorkshiregreenheating.com","address":{"@type":"PostalAddress","streetAddress":"3 Cavendish Court, South Parade","addressLocality":"Doncaster","postalCode":"DN1 2DJ","addressCountry":"GB"},"areaServed":[{"@type":"City","name":"Doncaster"},{"@type":"City","name":"Balby"},{"@type":"City","name":"Bessacarr"},{"@type":"City","name":"Cantley"},{"@type":"City","name":"Armthorpe"},{"@type":"City","name":"Bentley"},{"@type":"City","name":"Mexborough"},{"@type":"City","name":"Conisbrough"},{"@type":"City","name":"Thorne"},{"@type":"City","name":"Tickhill"},{"@type":"City","name":"Rossington"},{"@type":"City","name":"Bawtry"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"9.84","ratingCount":"597"}}
   </script>
+<!-- ga4-conversion-tracking -->
+<script>
+(function(){
+  function send(name, params){ try{ if(typeof gtag==='function'){ gtag('event', name, params||{}); } }catch(e){} }
+  document.addEventListener('click', function(e){
+    if(!e.target || !e.target.closest) return;
+    var tel = e.target.closest('a[href^="tel:"]');
+    if(tel){ send('phone_click', {link_url: tel.getAttribute('href')}); return; }
+    var book = e.target.closest('a[href^="/book"], a[href*="book.servicem8.com"]');
+    if(book){ send('book_online', {link_url: book.getAttribute('href')}); }
+  }, true);
+  document.addEventListener('submit', function(e){
+    var f = e.target;
+    if(f && f.getAttribute && (f.getAttribute('name')==='contact' || f.getAttribute('data-netlify')==='true')){
+      send('form_submission', {form_name: f.getAttribute('name')||'contact'});
+    }
+  }, true);
+})();
+</script>
+
 </body>
 </html>
