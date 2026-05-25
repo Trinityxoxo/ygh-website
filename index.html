@@ -698,6 +698,25 @@
 
     .service-link:hover { gap: 12px; }
 
+    /* Flagship (high-ticket) premium accent */
+    .service-card.flagship { border-color: var(--primary); }
+    .service-card.flagship .service-card-image { border-bottom: 4px solid var(--accent); }
+    /* Green tiles (high-ticket, no photo) */
+    .service-card.green-tile { background: linear-gradient(135deg, #1B4D3E 0%, #0A3025 100%); border-color: #0A3025; }
+    .service-card.green-tile .service-card-image { height: 168px; display: flex; align-items: center; justify-content: center; }
+    .service-card.green-tile .service-card-image img { width: auto; height: 104px; object-fit: contain; transition: transform 0.5s; }
+    .service-card.green-tile:hover .service-card-image img { transform: scale(1.06); }
+    .service-card.green-tile h3 { color: #fff; }
+    .service-card.green-tile p { color: rgba(255,255,255,0.85); }
+    .service-card.green-tile .service-link { color: var(--accent); }
+
+    /* Mobile: lighter images per Adam's note */
+    @media (max-width: 600px) {
+      .service-card-image { height: 150px; }
+      .service-card.green-tile .service-card-image { height: 132px; }
+      .service-card.green-tile .service-card-image img { height: 88px; }
+    }
+
     /* Feature Section */
     .feature-section {
       padding: 100px 0;
@@ -1573,7 +1592,7 @@
       <div class="services-grid">
         <div class="service-card fade-in">
           <div class="service-card-image">
-            <img src="images/IMG_0848-thumb.jpg" alt="Plumbing repairs by Yorkshire Green Heating in Doncaster">
+            <img src="images/service-toilet.jpg" alt="Modern white toilet fitted by Yorkshire Green Heating in Doncaster">
           </div>
           <div class="service-card-content">
             <h3>Plumbing Repairs &amp; General Plumbing</h3>
@@ -1582,42 +1601,9 @@
           </div>
         </div>
 
-        <div class="service-card fade-in">
+        <div class="service-card flagship fade-in">
           <div class="service-card-image">
-            <img src="images/IMG_4829-thumb.jpg" alt="Bathroom plumbing and installation by Yorkshire Green Heating in Doncaster">
-          </div>
-          <div class="service-card-content">
-            <h3>Bathroom Plumbing &amp; Installations</h3>
-            <p>Complete bathroom renovations from design to finish. Shower installations, full refits, and luxury en suite bathrooms. We handle plumbing, tiling and everything in between.</p>
-            <a class='service-link' href='/bathroom-installation-doncaster'>Learn more →</a>
-          </div>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-card-image">
-            <img src="images/water-softener-thumb.jpg" alt="Water softener installed under kitchen sink by Yorkshire Green Heating Doncaster">
-          </div>
-          <div class="service-card-content">
-            <h3>Water Softeners &amp; Kitchen Plumbing</h3>
-            <p>Water softener installation, reverse osmosis systems, kitchen sink fitting, dishwasher connections and tap replacements. Cleaner water, better tasting drinks.</p>
-            <a href="tel:+441302963007" class="service-link">Get a free quote →</a>
-          </div>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-card-image">
-            <img src="images/IMG_4479-thumb.jpg" alt="Gas fire service with Yorkshire Green Heating branded mat">
-          </div>
-          <div class="service-card-content">
-            <h3>Gas Safety &amp; Servicing</h3>
-            <p>CP12 landlord gas safety certificates, combustion-led boiler servicing (£90 inc VAT, 40 mins on site &mdash; full scope on our <a href="/terms" style="color:#D4A853;text-decoration:none;font-weight:600;">Terms</a>), gas cooker installations with safety checks. Peace of mind guaranteed.</p>
-            <a class='service-link' href='/gas-engineer-doncaster'>Learn more →</a>
-          </div>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-card-image">
-            <img src="images/IMG_1022-thumb.jpg" alt="Professional plumbing repairs by Yorkshire Green Heating in Doncaster">
+            <img src="images/service-boiler.jpg" alt="New boiler installation by Yorkshire Green Heating in Doncaster">
           </div>
           <div class="service-card-content">
             <h3>Boiler Installation &amp; Repairs</h3>
@@ -1628,18 +1614,40 @@
 
         <div class="service-card fade-in">
           <div class="service-card-image">
-            <img src="images/IMG_4843-thumb.jpg" alt="Worcester Bosch boiler with Tado smart thermostat installed by Yorkshire Green Heating Doncaster">
+            <img src="images/IMG_4479-thumb.jpg" alt="Gas safety check and servicing by Yorkshire Green Heating">
           </div>
           <div class="service-card-content">
-            <h3>Smart Thermostats</h3>
-            <p>Nest, Hive and smart thermostat installation and setup. Take control of your heating from your phone, cut your energy bills and upgrade your home's comfort.</p>
-            <a class='service-link' href='/central-heating-doncaster'>Learn more →</a>
+            <h3>Gas Safety &amp; Servicing</h3>
+            <p>CP12 landlord gas safety certificates, combustion-led boiler servicing (£90 inc VAT, 40 mins on site &mdash; full scope on our <a href="/terms" style="color:#D4A853;text-decoration:none;font-weight:600;">Terms</a>), gas cooker installations with safety checks. Peace of mind guaranteed.</p>
+            <a class='service-link' href='/gas-engineer-doncaster'>Learn more →</a>
           </div>
         </div>
 
-        <div class="service-card fade-in">
+        <div class="service-card green-tile fade-in">
           <div class="service-card-image">
-            <img src="images/IMG_4828-thumb.jpg" alt="Commercial heating and facilities management work by Yorkshire Green Heating in Doncaster">
+            <img src="images/icon-water-softener.svg" alt="Water softeners and kitchen plumbing by Yorkshire Green Heating Doncaster">
+          </div>
+          <div class="service-card-content">
+            <h3>Water Softeners &amp; Kitchen Plumbing</h3>
+            <p>Water softener installation, reverse osmosis systems, kitchen sink fitting, dishwasher connections and tap replacements. Cleaner water, better tasting drinks.</p>
+            <a href="tel:+441302963007" class="service-link">Get a free quote →</a>
+          </div>
+        </div>
+
+        <div class="service-card flagship fade-in">
+          <div class="service-card-image">
+            <img src="images/bathroom-modern-grey-ensuite.jpg" alt="Modern grey bathroom with walk-in shower installed by Yorkshire Green Heating in Doncaster">
+          </div>
+          <div class="service-card-content">
+            <h3>Bathroom Plumbing &amp; Installations</h3>
+            <p>Complete bathroom renovations from design to finish. Shower installations, full refits, and luxury en suite bathrooms. We handle plumbing, tiling and everything in between.</p>
+            <a class='service-link' href='/bathroom-installation-doncaster'>Learn more →</a>
+          </div>
+        </div>
+
+        <div class="service-card green-tile fade-in">
+          <div class="service-card-image">
+            <img src="images/icon-facilities-management.svg" alt="Facilities management and commercial heating by Yorkshire Green Heating Doncaster">
           </div>
           <div class="service-card-content">
             <h3>Facilities Management</h3>
@@ -1650,23 +1658,34 @@
 
         <div class="service-card fade-in">
           <div class="service-card-image">
-            <img src="images/IMG_0777-thumb.jpg" alt="Local plumber from Yorkshire Green Heating working in a Doncaster home">
+            <img src="images/service-smart-thermostat.jpg" alt="Smart thermostat installation by Yorkshire Green Heating Doncaster">
           </div>
           <div class="service-card-content">
-            <h3>Local Plumber</h3>
-            <p>Leaks, taps, burst pipes, blockages and general plumbing across Doncaster. Honest pricing, tidy work, friendly Gas Safe registered team.</p>
-            <a class='service-link' href='/plumber-doncaster'>Learn more →</a>
+            <h3>Smart Thermostats</h3>
+            <p>Nest, Hive and smart thermostat installation and setup. Take control of your heating from your phone, cut your energy bills and upgrade your home's comfort.</p>
+            <a class='service-link' href='/central-heating-doncaster'>Learn more →</a>
           </div>
         </div>
 
-        <div class="service-card fade-in">
+        <div class="service-card flagship fade-in">
           <div class="service-card-image">
-            <img src="images/IMG_4828-thumb.jpg" alt="Walk-in shower and mobility bathroom conversion in Doncaster">
+            <img src="images/service-walkin-shower.jpg" alt="Level-access walk-in shower for a mobility bathroom in Doncaster">
           </div>
           <div class="service-card-content">
             <h3>Mobility Bathrooms</h3>
             <p>Safer, easier bathrooms for older and less-mobile customers — walk-in showers, bath-to-shower conversions, level-access trays and grab rails. Free home survey.</p>
             <a class='service-link' href='/mobility-bathrooms-doncaster'>Learn more →</a>
+          </div>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-card-image">
+            <img src="images/service-kitchen-tap.jpg" alt="Modern kitchen mixer tap fitted by Yorkshire Green Heating in Doncaster">
+          </div>
+          <div class="service-card-content">
+            <h3>Local Plumber</h3>
+            <p>Leaks, taps, burst pipes, blockages and general plumbing across Doncaster. Honest pricing, tidy work, friendly Gas Safe registered team.</p>
+            <a class='service-link' href='/plumber-doncaster'>Learn more →</a>
           </div>
         </div>
       </div>
@@ -1684,12 +1703,12 @@
 
       <div class="gallery-grid">
         <div class="gallery-item fade-in">
-          <img src="images/IMG_4828-thumb.jpg" alt="Bathroom plumbing renovation before — Yorkshire Green Heating Doncaster">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Before</span></div>
+          <img src="images/bathroom-grey-tiled-shower.jpg" alt="Grey-tiled walk-in shower fitted by Yorkshire Green Heating in Doncaster">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Walk-in Shower</span></div>
         </div>
         <div class="gallery-item fade-in">
-          <img src="images/IMG_4829-thumb.jpg" alt="Bathroom plumbing installation complete — Yorkshire Green Heating Doncaster">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">After</span></div>
+          <img src="images/bathroom-grey-floor-tiling.jpg" alt="Grey bathroom floor tiling and heated towel rail by Yorkshire Green Heating in Doncaster">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Bathroom Tiling</span></div>
         </div>
         <div class="gallery-item fade-in">
           <img src="images/IMG_2646-thumb.jpg" alt="Designer vertical radiator installed in Doncaster">

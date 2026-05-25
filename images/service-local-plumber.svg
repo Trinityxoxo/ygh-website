@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 820" role="img" aria-label="Local plumber">
+  <defs>
+    <linearGradient id="bgp" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1B4D3E"/>
+      <stop offset="1" stop-color="#0A3025"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="820" fill="url(#bgp)"/>
+  <circle cx="410" cy="372" r="232" fill="#D4A853" opacity="0.12"/>
+  <!-- house outline -->
+  <g fill="none" stroke="#ffffff" stroke-width="22" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M250 410 L410 270 L570 410"/>
+    <path d="M300 388 V540 H520 V388"/>
+  </g>
+  <!-- water drop inside house -->
+  <path d="M410 388 c-44 54 -44 96 0 96 c44 0 44 -42 0 -96 z" fill="#D4A853"/>
+  <text x="410" y="700" text-anchor="middle" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="56" font-weight="700" fill="#ffffff">Local Plumber</text>
+</svg>

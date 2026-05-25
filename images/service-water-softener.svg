@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 820" role="img" aria-label="Water softeners and kitchen plumbing">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1B4D3E"/>
+      <stop offset="1" stop-color="#0A3025"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="820" fill="url(#bg)"/>
+  <circle cx="410" cy="388" r="232" fill="#D4A853" opacity="0.12"/>
+  <!-- tap / mixer -->
+  <g fill="none" stroke="#ffffff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M300 300 h150 a70 70 0 0 1 70 70 v18"/>
+    <path d="M300 300 v70"/>
+    <rect x="262" y="370" width="76" height="40" rx="10" fill="#ffffff" stroke="none"/>
+    <path d="M520 388 v34" stroke="#D4A853"/>
+  </g>
+  <!-- water drops -->
+  <g fill="#D4A853">
+    <path d="M520 452 c-34 40 -34 70 0 70 c34 0 34 -30 0 -70 z"/>
+  </g>
+  <g fill="#ffffff" opacity="0.9">
+    <path d="M470 545 c-22 26 -22 46 0 46 c22 0 22 -20 0 -46 z"/>
+    <path d="M566 545 c-22 26 -22 46 0 46 c22 0 22 -20 0 -46 z"/>
+  </g>
+  <text x="410" y="700" text-anchor="middle" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="52" font-weight="700" fill="#ffffff">Water Softeners</text>
+</svg>

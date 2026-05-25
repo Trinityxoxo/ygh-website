@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 260" role="img" aria-label="Water softeners and kitchen plumbing">
+  <g fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M96 70 h120 a52 52 0 0 1 52 52 v14"/>
+    <path d="M96 70 v52"/>
+  </g>
+  <rect x="66" y="122" width="60" height="32" rx="8" fill="#ffffff"/>
+  <path d="M268 150 v26" stroke="#D4A853" stroke-width="16" stroke-linecap="round"/>
+  <path d="M268 196 c-26 30 -26 54 0 54 c26 0 26 -24 0 -54 z" fill="#D4A853"/>
+  <path d="M150 196 c-18 21 -18 38 0 38 c18 0 18 -17 0 -38 z" fill="#ffffff" opacity="0.92"/>
+  <path d="M210 210 c-15 18 -15 32 0 32 c15 0 15 -14 0 -32 z" fill="#ffffff" opacity="0.92"/>
+</svg>

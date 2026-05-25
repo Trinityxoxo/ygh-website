@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 260" role="img" aria-label="Facilities management">
+  <g fill="none" stroke="#ffffff" stroke-width="16" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="70" y="46" width="150" height="168" rx="8"/>
+    <line x1="104" y1="92" x2="132" y2="92"/>
+    <line x1="150" y1="92" x2="186" y2="92"/>
+    <line x1="104" y1="130" x2="132" y2="130"/>
+    <line x1="150" y1="130" x2="186" y2="130"/>
+    <line x1="104" y1="168" x2="132" y2="168"/>
+    <line x1="150" y1="168" x2="186" y2="168"/>
+  </g>
+  <g transform="rotate(42 232 176)">
+    <path d="M232 104 a44 44 0 1 0 30 76 l64 64 a21 21 0 0 0 30 -30 l-64 -64 a44 44 0 0 0 -60 -46 l28 28 -16 38 -38 10 -26 -26 a44 44 0 0 0 22 -50 z" fill="#D4A853" stroke="#0A3025" stroke-width="4"/>
+  </g>
+</svg>
