@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>YGH — Engineer Handbook</title>
+<style>
+  :root{
+    --green:#0e7b43; --green-bright:#19a55c; --green-pale:#d7efe1;
+    --ink:#10231a; --paper:#f6faf7; --sun:#f5b83d; --grey:#5b6f64;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);}
+  header{text-align:center;padding:36px 20px 10px;}
+  header .kicker{text-transform:uppercase;letter-spacing:.25em;font-size:12px;font-weight:700;color:var(--green);}
+  header h1{font-size:clamp(26px,4.2vw,42px);font-weight:800;margin-top:6px;letter-spacing:-.02em;}
+  header p{color:var(--grey);margin-top:8px;font-size:15px;max-width:640px;margin-left:auto;margin-right:auto;}
+  .section{max-width:900px;margin:26px auto;padding:0 20px;}
+  .card{background:#fff;border:1px solid #e2ece6;border-radius:16px;padding:26px 28px;box-shadow:0 8px 30px rgba(16,35,26,.06);}
+  h2{font-size:22px;font-weight:800;margin-bottom:10px;}
+  h2 .n{color:var(--green);margin-right:8px;}
+  .card p{font-size:15px;line-height:1.6;margin-bottom:10px;}
+  .card ul{list-style:none;margin-top:4px;}
+  .card li{padding:7px 0 7px 26px;position:relative;font-size:14.5px;line-height:1.5;}
+  .card li::before{content:"✓";position:absolute;left:2px;top:7px;color:var(--green-bright);font-weight:800;}
+  .vision-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px;}
+  .vcol{border:1px solid #e2ece6;border-radius:14px;padding:18px;}
+  .vcol h3{font-size:15px;font-weight:800;margin-bottom:8px;}
+  .vcol.were h3{color:var(--grey);} .vcol.now h3{color:var(--green);} .vcol.next h3{color:#8a6410;}
+  .vcol ul{list-style:none;} .vcol li{padding:5px 0 5px 18px;font-size:13.5px;position:relative;line-height:1.45;}
+  .vcol li::before{content:"·";position:absolute;left:4px;top:5px;font-weight:800;color:var(--green-bright);}
+  .vcol.were li::before{color:#9aa8a0;} .vcol.next li::before{color:var(--sun);}
+  .loop{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px;}
+  .step{background:#fff;border:1px solid #e2ece6;border-radius:14px;padding:16px 12px;text-align:center;cursor:pointer;transition:transform .15s,box-shadow .15s,border-color .15s;}
+  .step:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(16,35,26,.10);}
+  .step.active{border-color:var(--green);box-shadow:0 0 0 3px var(--green-pale);}
+  .step .num{width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;}
+  .step .icon{font-size:24px;display:block;margin-bottom:6px;}
+  .step b{display:block;font-size:13.5px;line-height:1.3;}
+  .detail{margin-top:16px;background:var(--green-pale);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:16px 18px;}
+  .detail h3{font-size:16px;font-weight:800;margin-bottom:6px;}
+  .detail ul{list-style:none;} .detail li{padding:5px 0 5px 22px;position:relative;font-size:14px;line-height:1.5;}
+  .detail li::before{content:"→";position:absolute;left:0;top:5px;color:var(--green);font-weight:800;}
+  .values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:14px;}
+  .value{background:var(--ink);color:#fff;border-radius:14px;padding:18px 16px;}
+  .value .vnum{color:var(--sun);font-weight:800;font-size:12px;letter-spacing:.15em;}
+  .value b{display:block;font-size:15px;margin:5px 0 7px;}
+  .value span{display:block;color:#b9cdc2;font-size:12.5px;line-height:1.5;}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;}
+  .chip{background:var(--green-pale);color:var(--green);border:1px solid #b9dcc8;font-weight:700;font-size:13.5px;padding:9px 18px;border-radius:999px;}
+  .quote{margin-top:14px;padding:14px 16px;background:var(--green-pale);border-left:4px solid var(--green);border-radius:0 10px 10px 0;font-style:italic;font-weight:600;font-size:15px;}
+  .crew-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:14px;}
+  .member{border:1px solid #e2ece6;border-radius:14px;padding:14px;text-align:center;}
+  .member .avatar{width:40px;height:40px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;margin:0 auto 8px;}
+  .member b{display:block;font-size:14.5px;} .member span{display:block;color:var(--grey);font-size:12px;margin-top:3px;line-height:1.35;}
+  footer{text-align:center;padding:28px 20px 46px;}
+  footer .mantra{display:inline-block;background:var(--green);color:#fff;font-size:clamp(15px,2.2vw,20px);font-weight:800;padding:15px 28px;border-radius:999px;}
+  footer .small{color:var(--grey);font-size:12.5px;margin-top:14px;line-height:1.6;}
+  a.sunlink{color:var(--green);font-weight:700;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">Yorkshire Green Heating</div>
+  <h1>Engineer Handbook</h1>
+  <p>Where this company is going, how we work, and how your growth is wired into ours. No corporate fluff — every line makes your week run smoother.</p>
+</header>
+
+<div class="section"><div class="card">
+  <h2><span class="n">1.</span>Welcome from Adam</h2>
+  <p>You're not joining a job. You're joining something that's being built — properly, brick by brick, in public.</p>
+  <p>Twelve months ago this was Adam and Kristine holding everything together with one engineer on bathroom jobs. Today: 700+ reviews, a growing team, a full rebrand, VAT registered, an AI ecosystem doing the boring admin, and a documentary — <b>Plumbing to a Million</b> — showing the next generation of plumbers how it's done.</p>
+  <p>You're here because we believe you make that machine stronger. This handbook shows you how.</p>
+</div></div>
+
+<div class="section"><div class="card">
+  <h2><span class="n">2.</span>Vision &amp; Direction</h2>
+  <p>The full story lives on the <a class="sunlink" href="/12-months-around-the-sun">12 Months Around the Sun</a> page. The short version:</p>
+  <div class="vision-cols">
+    <div class="vcol were"><h3>WHERE WE CAME FROM</h3><ul>
+      <li>One van, reactive, invisible</li><li>"Just a plumber"</li><li>No systems, no team — but a plan</li>
+    </ul></div>
+    <div class="vcol now"><h3>WHERE WE ARE</h3><ul>
+      <li>700+ reviews (target was 500)</li><li>Rebrand, VAT registered, CRM synced</li><li>Plumbing to a Million on TikTok + YouTube</li><li>AI working FOR the team — quotes, calls, admin</li>
+    </ul></div>
+    <div class="vcol next"><h3>WHERE WE'RE GOING</h3><ul>
+      <li>Another new plumber on board</li><li>Adam hybrid — on the tools + building the ecosystem</li><li>Quoting automated · more property management</li><li>Commercial &amp; B2B clients · water filtration</li>
+    </ul></div>
+  </div>
+  <div class="crew-grid">
+    <div class="member"><div class="avatar">K</div><b>Kristine</b><span>Operations — the spine.</span></div>
+    <div class="member"><div class="avatar">P</div><b>Paul</b><span>Gas + plumbing. New on board.</span></div>
+    <div class="member"><div class="avatar">D</div><b>Dan</b><span>Lead engineer. Standards on site.</span></div>
+    <div class="member"><div class="avatar">K</div><b>Kenneth</b><span>Ops support.</span></div>
+    <div class="member"><div class="avatar">A</div><b>Adam</b><span>Hybrid — tools + ecosystem.</span></div>
+  </div>
+  <div class="quote">Nobody here works <em>for</em> YGH. We're all building it.</div>
+</div></div>
+
+<div class="section"><div class="card">
+  <h2><span class="n">3.</span>The Ecosystem — why your input matters</h2>
+  <p>Every job follows the same loop. Your part feeds everyone downstream — and what comes back feeds you. <b>A missing photo today is a payment delay next week.</b> Click any step:</p>
+  <div class="loop" id="loop"></div>
+  <div class="detail" id="detail"></div>
+</div></div>
+
+<div class="section"><div class="card">
+  <h2><span class="n">4.</span>The Five Engineering Values</h2>
+  <div class="values-grid">
+    <div class="value"><div class="vnum">01</div><b>Ecosystem thinking</b><span>Your input affects everyone downstream.</span></div>
+    <div class="value"><div class="vnum">02</div><b>Documentation first</b><span>Photos, notes, receipts before anything else. If it isn't recorded, it didn't happen.</span></div>
+    <div class="value"><div class="vnum">03</div><b>Stop for suspicion</b><span>Something looks wrong? Stop, make it safe, flag it. No hero fixes.</span></div>
+    <div class="value"><div class="vnum">04</div><b>Clean = professional</b><span>Uniform, van, workspace, communication. The standard is the brand.</span></div>
+    <div class="value"><div class="vnum">05</div><b>Growth mindset</b><span>The loop creates the next rung of your ladder.</span></div>
+  </div>
+</div></div>
+
+<div class="section"><div class="card">
+  <h2><span class="n">5.</span>Day-to-Day Protocol</h2>
+  <ul>
+    <li><b>Every morning:</b> "Good morning" in the team WhatsApp — confirms you're ready, keeps the day visible. Check ServiceM8 jobs and your calendar.</li>
+    <li><b>Availability:</b> calendar synced with ServiceM8 at all times; block unavailable time in advance.</li>
+    <li><b>On site:</b> mark Start Job / On Site in ServiceM8 · before/after photos of every worked-on area · clear notes (fault, work done, follow-ups) · update job status before leaving · tag Adam or the office to escalate.</li>
+    <li><b>With customers:</b> professional greeting · offer to remove shoes · plain English, no jargon · walk them through the work · ask for the review — it activates their 12-month guarantee.</li>
+    <li><b>Communication:</b> issues get flagged early, not explained late. Nobody gets a hard time for raising a problem.</li>
+  </ul>
+</div></div>
+
+<div class="section"><div class="card">
+  <h2><span class="n">6.</span>Invoicing &amp; Payment</h2>
+  <ul>
+    <li>Invoices reference job numbers, submitted by <b>Friday 5:00 PM</b>.</li>
+    <li>Standard payment: <b>7 days</b> from a valid invoice.</li>
+    <li>Complete documentation = on-time payment. The loop in section 3 is what gets you paid.</li>
+  </ul>
+</div></div>
+
+<div class="section"><div class="card">
+  <h2><span class="n">7.</span>Growth Paths</h2>
+  <p>Company growth and your growth are the same engine. Paths already open:</p>
+  <div class="chips">
+    <span class="chip">Oil boiler qualification</span>
+    <span class="chip">Water treatment / filtration specialism</span>
+    <span class="chip">Property management oversight</span>
+    <span class="chip">Team lead / supervisor roles</span>
+  </div>
+  <div class="quote">If one of these has your name on it, say so. Plans get built around people who put their hand up.</div>
+</div></div>
+
+<div class="section"><div class="card">
+  <h2><span class="n">8.</span>Safety &amp; Compliance</h2>
+  <ul>
+    <li>Gas Safe registration current and carried (YGH reg: 638592).</li>
+    <li>Valid Public Liability Insurance, proof available on request (self-employed partners).</li>
+    <li><b>Stop for suspicion</b> is a safety rule first: make it safe, photograph it, flag it. Every time.</li>
+    <li>Customer information and company systems are confidential.</li>
+  </ul>
+</div></div>
+
+<footer>
+  <div class="mantra">FEED THE ECOSYSTEM — IT FEEDS YOU BACK.</div>
+  <p class="small">700+ reviews is why your diary is full. The machine is the moat — and you're one of the people building it.<br>
+  Yorkshire Green Heating Ltd · 3 Cavendish Court, South Parade, Doncaster DN1 2DJ · 01302 963007 · info@yorkshiregreenheating.com · Gas Safe Reg 638592</p>
+</footer>
+
+<script>
+  const STEPS = [
+    {icon:'📋',title:'Job lands',h:'1. Job lands',points:['Booked into ServiceM8 with details, history and access notes','Read the job notes before you arrive, not in the driveway','Anything unclear? Ask before you set off']},
+    {icon:'🚐',title:'Arrive right',h:'2. Arrive right',points:['Branded uniform, tidy van, polite intro, offer to remove shoes','The customer decides what we are in the first 60 seconds']},
+    {icon:'📸',title:'Document first',h:'3. Document first',points:['Photos BEFORE you touch anything, photos after','Clear notes: fault found, work done, follow-ups','Receipts and materials logged same day','If it isn\'t recorded, it didn\'t happen']},
+    {icon:'🔧',title:'Do the work',h:'4. Do the work',points:['Right, not just fast — to spec, no shortcuts, no guesses','Tidy as you go, full clean-down at the end','Walk the customer through it in plain English']},
+    {icon:'🗂️',title:'Close it out',h:'5. Close it out',points:['Status updated, photos and notes attached before leaving site','Kristine and the office can only invoice what they can see','Spotted follow-up work? Flag it — that\'s tomorrow\'s pipeline']},
+    {icon:'⭐',title:'Review & repeat',h:'6. Review & repeat',points:['Ask the happy customer for a review — every job','Their review activates their 12-month guarantee','Reviews → ranking → leads → steadier work → better kit, better pay, new roles']}
+  ];
+  const loop = document.getElementById('loop');
+  STEPS.forEach((s,i)=>{
+    const d=document.createElement('div');
+    d.className='step'; d.onclick=()=>show(i);
+    d.innerHTML='<div class="num">'+(i+1)+'</div><span class="icon">'+s.icon+'</span><b>'+s.title+'</b>';
+    loop.appendChild(d);
+  });
+  function show(i){
+    document.querySelectorAll('.step').forEach((el,j)=>el.classList.toggle('active',i===j));
+    const s=STEPS[i];
+    document.getElementById('detail').innerHTML='<h3>'+s.icon+' '+s.h+'</h3><ul>'+s.points.map(p=>'<li>'+p+'</li>').join('')+'</ul>';
+  }
+  show(2);
+</script>
+</body>
+</html>
