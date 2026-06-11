@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YGH — 12 Months Around the Sun</title>
+<style>
+  :root{
+    --green:#0e7b43;
+    --green-bright:#19a55c;
+    --green-pale:#d7efe1;
+    --ink:#10231a;
+    --paper:#f6faf7;
+    --sun:#f5b83d;
+    --grey:#5b6f64;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    min-height:100vh;
+  }
+  header{
+    text-align:center;
+    padding:34px 20px 6px;
+  }
+  header .kicker{
+    text-transform:uppercase;
+    letter-spacing:.25em;
+    font-size:12px;
+    font-weight:700;
+    color:var(--green);
+  }
+  header h1{
+    font-size:clamp(28px,4.5vw,46px);
+    font-weight:800;
+    margin-top:6px;
+    letter-spacing:-.02em;
+  }
+  header p{
+    color:var(--grey);
+    margin-top:8px;
+    font-size:15px;
+  }
+  .stage{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:flex-start;
+    gap:28px;
+    max-width:1200px;
+    margin:10px auto 30px;
+    padding:0 20px;
+  }
+  .orbit-wrap{
+    flex:0 1 520px;
+    min-width:320px;
+  }
+  svg{width:100%;height:auto;display:block;}
+  .panel{
+    flex:1 1 420px;
+    min-width:300px;
+    max-width:560px;
+    background:#fff;
+    border:1px solid #e2ece6;
+    border-radius:16px;
+    padding:26px 28px;
+    box-shadow:0 8px 30px rgba(16,35,26,.07);
+    min-height:430px;
+  }
+  .panel .tag{
+    display:inline-block;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    padding:5px 12px;
+    border-radius:999px;
+    margin-bottom:12px;
+  }
+  .panel h2{font-size:26px;font-weight:800;letter-spacing:-.01em;}
+  .panel .sub{color:var(--grey);font-size:14px;margin:6px 0 16px;}
+  .panel ul{list-style:none;}
+  .panel li{
+    padding:9px 0 9px 28px;
+    position:relative;
+    border-bottom:1px dashed #e6efe9;
+    font-size:15px;
+    line-height:1.45;
+  }
+  .panel li:last-child{border-bottom:none;}
+  .panel li::before{
+    content:"";
+    position:absolute;left:2px;top:15px;
+    width:10px;height:10px;border-radius:50%;
+    background:var(--green-bright);
+  }
+  .panel.were li::before{background:#9aa8a0;}
+  .panel.going li::before{background:var(--sun);}
+  .quote{
+    margin-top:16px;
+    padding:14px 16px;
+    background:var(--green-pale);
+    border-left:4px solid var(--green);
+    border-radius:0 10px 10px 0;
+    font-style:italic;
+    font-weight:600;
+    font-size:15px;
+  }
+  .orbit-node{cursor:pointer;}
+  .orbit-node circle.dot{transition:r .2s ease, fill .2s ease;}
+  .orbit-node:hover circle.dot{r:30;}
+  .orbit-node text{pointer-events:none;}
+  .hint{text-align:center;color:var(--grey);font-size:13px;margin-top:10px;}
+  .team{
+    max-width:1160px;margin:0 auto 30px;padding:0 20px;
+  }
+  .team h3{
+    text-align:center;font-size:22px;font-weight:800;margin-bottom:4px;
+  }
+  .team .sub{text-align:center;color:var(--grey);font-size:14px;margin-bottom:18px;}
+  .team-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:14px;
+  }
+  .member{
+    background:#fff;border:1px solid #e2ece6;border-radius:14px;
+    padding:16px;text-align:center;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .member:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(16,35,26,.10);}
+  .member .avatar{
+    width:46px;height:46px;border-radius:50%;
+    background:var(--green);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:18px;margin:0 auto 10px;
+  }
+  .member b{display:block;font-size:16px;}
+  .member span{display:block;color:var(--grey);font-size:13px;margin-top:4px;line-height:1.35;}
+  footer{
+    text-align:center;
+    padding:26px 20px 44px;
+  }
+  footer .mantra{
+    display:inline-block;
+    background:var(--ink);
+    color:#fff;
+    font-size:clamp(16px,2.4vw,22px);
+    font-weight:800;
+    padding:16px 30px;
+    border-radius:999px;
+    letter-spacing:.01em;
+  }
+  footer .small{color:var(--grey);font-size:13px;margin-top:12px;}
+  @media (max-width:760px){ .panel{min-height:0;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">Yorkshire Green Heating</div>
+  <h1>12 Months Around the Sun</h1>
+  <p>One full orbit. Where we've been, where we are, where we're going. Click the orbit.</p>
+</header>
+
+<div class="stage">
+  <div class="orbit-wrap">
+    <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg" aria-label="Orbit diagram">
+      <!-- orbit ring -->
+      <circle cx="260" cy="260" r="190" fill="none" stroke="#cfe4d7" stroke-width="2" stroke-dasharray="3 7"/>
+      <!-- month ticks -->
+      <g id="ticks" stroke="#b9d6c5" stroke-width="2"></g>
+      <!-- sun -->
+      <g id="sunCore" style="cursor:default">
+        <circle cx="260" cy="260" r="74" fill="var(--sun)" opacity=".18"/>
+        <circle cx="260" cy="260" r="56" fill="var(--sun)"/>
+        <text x="260" y="252" text-anchor="middle" font-size="15" font-weight="800" fill="#5c4308">THE</text>
+        <text x="260" y="270" text-anchor="middle" font-size="15" font-weight="800" fill="#5c4308">MISSION</text>
+        <text x="260" y="287" text-anchor="middle" font-size="12" font-weight="700" fill="#7a5c10">Plumbing to a Million</text>
+      </g>
+      <!-- WERE node (left) -->
+      <g class="orbit-node" id="node-were" onclick="show('were')">
+        <circle class="dot" cx="70" cy="260" r="26" fill="#9aa8a0"/>
+        <text x="70" y="265" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">WERE</text>
+        <text x="70" y="308" text-anchor="middle" font-size="12" fill="#5b6f64">12 months ago</text>
+      </g>
+      <!-- NOW node (top right) -->
+      <g class="orbit-node" id="node-now" onclick="show('now')">
+        <circle class="dot" cx="395" cy="125" r="26" fill="var(--green)"/>
+        <text x="395" y="130" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">NOW</text>
+        <text x="395" y="88" text-anchor="middle" font-size="12" fill="#5b6f64">June 2026</text>
+      </g>
+      <!-- GOING node (bottom right) -->
+      <g class="orbit-node" id="node-going" onclick="show('going')">
+        <circle class="dot" cx="395" cy="395" r="26" fill="var(--sun)"/>
+        <text x="395" y="400" text-anchor="middle" font-size="12" font-weight="800" fill="#5c4308">NEXT</text>
+        <text x="395" y="438" text-anchor="middle" font-size="12" fill="#5b6f64">the next orbit</text>
+      </g>
+      <!-- direction arrow -->
+      <path d="M 260 70 A 190 190 0 0 1 330 83" fill="none" stroke="#8fc3a6" stroke-width="3" marker-end="url(#arrow)"/>
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#8fc3a6"/>
+        </marker>
+      </defs>
+    </svg>
+    <p class="hint">Tap WERE · NOW · NEXT to switch the story →</p>
+  </div>
+
+  <div class="panel were" id="panel"></div>
+</div>
+
+<div class="team">
+  <h3>The Crew on This Orbit</h3>
+  <p class="sub">Nobody works <em>for</em> YGH. We're all building it.</p>
+  <div class="team-grid">
+    <div class="member"><div class="avatar">K</div><b>Kristine</b><span>Operations — the spine. Nothing moves without her.</span></div>
+    <div class="member"><div class="avatar">P</div><b>Paul</b><span>Gas engineer + plumbing. Taking Adam off the tools.</span></div>
+    <div class="member"><div class="avatar">D</div><b>Dan</b><span>Lead engineer. Standards on site.</span></div>
+    <div class="member"><div class="avatar">K</div><b>Kenneth</b><span>Ops support. Keeping the machine fed.</span></div>
+    <div class="member"><div class="avatar">+</div><b>New plumber</b><span>Gas + oil. Opens the oil boiler market.</span></div>
+    <div class="member"><div class="avatar">A</div><b>Adam</b><span>Off the tools. Overseer · operator · surveyor. Architect, not bricklayer.</span></div>
+  </div>
+</div>
+
+<footer>
+  <div class="mantra">THE MACHINE IS THE MOAT.</div>
+  <p class="small">Yorkshire Green Heating · Plumbing to a Million · Year One</p>
+</footer>
+
+<script>
+  // month ticks around the orbit
+  (function(){
+    const g = document.getElementById('ticks');
+    for(let i=0;i<12;i++){
+      const a = (i/12)*Math.PI*2 - Math.PI/2;
+      const x1 = 260 + Math.cos(a)*183, y1 = 260 + Math.sin(a)*183;
+      const x2 = 260 + Math.cos(a)*197, y2 = 260 + Math.sin(a)*197;
+      const l = document.createElementNS('http://www.w3.org/2000/svg','line');
+      l.setAttribute('x1',x1); l.setAttribute('y1',y1);
+      l.setAttribute('x2',x2); l.setAttribute('y2',y2);
+      g.appendChild(l);
+    }
+  })();
+
+  const DATA = {
+    were: {
+      tag:'WHERE WE WERE', tagBg:'#eef1ef', tagColor:'#5b6f64',
+      title:'Small crew. Big plan. Invisible.',
+      sub:'Twelve months ago.',
+      items:[
+        'Adam and Christine holding it all together — plus one engineer on bathroom jobs',
+        'Adam on the tools 5 days a week, doing everything else too',
+        '"Just a plumber." Hidden. No visibility.',
+        'No systems, no real team — reactive, scarcity mindset',
+        'But there WAS a plan: new website, Meet the Team, employ a plumber, 500+ reviews'
+      ],
+      quote:'"The version of me that stayed hidden — I\'m leaving that behind."'
+    },
+    now: {
+      tag:'WHERE WE ARE', tagBg:'#d7efe1', tagColor:'#0e7b43',
+      title:'700+ reviews. Team of 6+. Visible.',
+      sub:'The magical year — targets weren\'t just hit, they were beaten.',
+      items:[
+        '700+ reviews (the target was 500)',
+        'Full rebrand — van signs, uniform, website live',
+        'VAT registered, CRM and calendars in sync',
+        'TikTok + YouTube rebranded "Plumbing to a Million" — showcasing the build for the next generation of plumbers',
+        'Bark active · Checkatrade upgraded · multiple service lines, systems forming',
+        'Beat the plan — did MORE than we set out to (took an extra 3–4 months, and worth it)',
+        'AI ecosystem working FOR the team, not instead of it — automated quotes, easier admin'
+      ],
+      quote:'"Stuff I didn\'t think I\'d do — the magical year."'
+    },
+    going: {
+      tag:'WHERE WE\'RE GOING', tagBg:'#fdeeca', tagColor:'#8a6410',
+      title:'The next orbit: build the machine.',
+      sub:'Not chasing the million — building the frequency that gets there.',
+      items:[
+        'Paul (gas + plumbing) takes primary → Adam off the tools',
+        'Quoting automated → biggest bottleneck removed',
+        'More property management clients → recurring revenue',
+        'Water filtration → new service line',
+        '"Plumbing to a Million" documentary → brand + inbound leads',
+        'The business earning from operations, not labour',
+        'A machine that doesn\'t slow down when Adam\'s on holiday'
+      ],
+      quote:'"A million is nothing without self-sustaining growth."'
+    }
+  };
+
+  function show(key){
+    const d = DATA[key];
+    const p = document.getElementById('panel');
+    p.className = 'panel ' + key;
+    p.innerHTML =
+      '<span class="tag" style="background:'+d.tagBg+';color:'+d.tagColor+'">'+d.tag+'</span>' +
+      '<h2>'+d.title+'</h2>' +
+      '<p class="sub">'+d.sub+'</p>' +
+      '<ul>'+ d.items.map(i=>'<li>'+i+'</li>').join('') +'</ul>' +
+      '<div class="quote">'+d.quote+'</div>';
+    ['were','now','going'].forEach(k=>{
+      const dot = document.querySelector('#node-'+k+' circle.dot');
+      dot.setAttribute('stroke', k===key ? '#10231a' : 'none');
+      dot.setAttribute('stroke-width', k===key ? 4 : 0);
+    });
+  }
+  show('now');
+</script>
+</body>
+</html>
