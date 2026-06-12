@@ -15,13 +15,16 @@
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
   a{color:var(--green-dark)}
   .wrap{max-width:980px;margin:0 auto;padding:0 20px}
+  /* On-call status banner — flipped by Emergency Mode */
   .oncall{background:var(--green);color:#fff;text-align:center;padding:10px 16px;font-weight:600;font-size:15px}
   .oncall .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#9af7b8;margin-right:8px;animation:pulse 1.6s infinite}
   @keyframes pulse{0%{opacity:1}50%{opacity:.35}100%{opacity:1}}
+  /* Header */
   header{background:#fff;border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
   .brand{font-weight:700;font-size:18px;color:var(--green-dark);text-decoration:none}
   .bookbtn{background:var(--amber);color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:700;white-space:nowrap}
+  /* Hero */
   .hero{background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff;padding:54px 0 48px}
   .hero h1{font-size:36px;line-height:1.15;margin-bottom:14px}
   .hero p.lede{font-size:19px;opacity:.95;max-width:680px;margin-bottom:22px}
@@ -30,10 +33,12 @@
   .cta-row{display:flex;flex-wrap:wrap;gap:12px}
   .btn{display:inline-block;text-decoration:none;font-weight:700;padding:15px 26px;border-radius:10px;font-size:17px}
   .btn-book{background:var(--amber);color:#fff}
+  /* Fee strip */
   .feestrip{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:-28px auto 0;max-width:900px;position:relative;box-shadow:0 8px 26px rgba(0,0,0,.06);display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
   .feestrip .fee{font-size:34px;font-weight:800;color:var(--green-dark)}
   .feestrip .fee small{display:block;font-size:13px;font-weight:600;color:var(--muted)}
   .feestrip .desc{flex:1;min-width:240px;color:var(--muted);font-size:15px}
+  /* Sections */
   section{padding:40px 0}
   h2{font-size:25px;color:var(--green-dark);margin-bottom:16px}
   h3{font-size:18px;margin:18px 0 6px}
@@ -41,6 +46,7 @@
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:8px}
   .tile{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
   .tile h3{margin-top:0;color:var(--ink)}
+  /* Steps */
   .steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
   .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;position:relative}
   .step::before{counter-increment:s;content:counter(s);position:absolute;top:-14px;left:18px;width:30px;height:30px;background:var(--green);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
@@ -90,7 +96,7 @@
 <div class="wrap">
   <div class="feestrip">
     <div class="fee">£300 <small>call-out fee · inc. VAT</small></div>
-    <div class="desc">A fixed <strong>£300 emergency call-out fee (includes VAT)</strong> covers getting an engineer to you, diagnosis and the first hour on site. Paid securely online when you book. Any additional parts or labour are quoted to you before work continues.</div>
+    <div class="desc">A fixed <strong>£300 emergency call-out fee (includes VAT)</strong> covers getting an engineer to you, diagnosis and the first hour on site. Once we've confirmed we can reach you, we send a secure link to pay. Any additional parts or labour are quoted to you before work continues.</div>
   </div>
 </div>
 
@@ -99,12 +105,12 @@
     <h2>How emergency call-outs work</h2>
     <div class="steps">
       <div class="step">
-        <h3>Book online</h3>
-        <p>Fill in the <strong>emergency call-out</strong> booking form below and tell us where you are and what's happening.</p>
+        <h3>Tell us your emergency</h3>
+        <p>Fill in the <strong>emergency call-out</strong> form below — leave your contact details and tell us where you are and what's happening.</p>
       </div>
       <div class="step">
-        <h3>Pay the call-out fee</h3>
-        <p>Pay the fixed £300 (inc VAT) call-out fee securely online. That confirms your booking.</p>
+        <h3>We confirm &amp; send a payment link</h3>
+        <p>We check we can get to you, then text/email you a secure link to pay the fixed £300 (inc VAT) call-out fee. Paying confirms your booking.</p>
       </div>
       <div class="step">
         <h3>Engineer on the way</h3>
@@ -118,12 +124,12 @@
 <section id="book" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <h2>Book an emergency call-out</h2>
-    <p>Register your details and pay the £300 (inc VAT) call-out fee online — the form below goes straight to our emergency call-out. Everything drops into our system and we're on our way — <strong>subject to availability</strong>.</p>
+    <p>Leave your details and what's happening below. We'll confirm we can reach you, then send you a secure link to pay the £300 (inc VAT) call-out fee — and a Gas Safe engineer is on the way, <strong>subject to availability</strong>.</p>
 
     <div class="booking">
       <iframe src="https://book.servicem8.com/request_service_booking?strVendorUUID=507de3b3-df8f-42d9-a881-1f1ed327a1db#a690ad91-aec2-4a5d-b67a-244c82a68ddb" title="Book an emergency call-out"></iframe>
       <p class="small">Trouble loading the form? <a href="https://book.servicem8.com/request_service_booking?strVendorUUID=507de3b3-df8f-42d9-a881-1f1ed327a1db#a690ad91-aec2-4a5d-b67a-244c82a68ddb" target="_blank" rel="noopener">Open it in a new tab →</a></p>
-      <div class="pay-note">Payment is taken securely via ServiceM8 Pay once you've booked. You'll get an instant receipt by text and email.</div>
+      <div class="pay-note">Once we've confirmed availability, we'll send you a secure payment link for the £300 call-out fee. You'll get an instant receipt by text and email once it's paid.</div>
     </div>
   </div>
 </section>
@@ -168,7 +174,7 @@
     </div>
     <div>
       <strong>Emergency call-out fee</strong><br>
-      £300 inc VAT, paid online when you book.<br>
+      £300 inc VAT, paid via a secure link we send once availability is confirmed.<br>
       Additional parts/labour quoted before work continues.<br>
       Subject to availability.<br>
       <a href="https://yorkshiregreenheating.com/terms">Terms &amp; Conditions</a>
