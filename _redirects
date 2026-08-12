@@ -40,6 +40,7 @@
 /blog/outside-tap-installation-doncaster-2026.html   /blog/outside-tap-installation-doncaster-2026   301!
 /blog/new-build-plumbing-doncaster-estates-2026.html /blog/new-build-plumbing-doncaster-estates-2026 301!
 /blog/boiler-installation-tickhill-doncaster-villages-2026.html /blog/boiler-installation-tickhill-doncaster-villages-2026 301!
+/blog/disabled-bathroom-grants-vat-doncaster-2026.html /blog/disabled-bathroom-grants-vat-doncaster-2026 301!
 
 # Legacy duplicate URLs
 /termsandconditions                      /terms                              301
@@ -51,6 +52,8 @@
 
 # Legacy /about and /contact (they don't exist as pages yet — safe-land on homepage anchors)
 # Cover both extensionless and .html so old bookmarks don't 404 (added 18 May)
+/blog/how-to-choose-a-plumber-doncaster-2026.html /blog/how-to-choose-a-plumber-doncaster-2026 301!
+
 /about        /#about     301
 /contact      /#contact   301
 /about.html   /#about     301!
